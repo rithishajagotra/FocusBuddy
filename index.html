@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Focus Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <h1>FOCUS BUDDY</h1>
+  <p>Stay present. Move forward.</p>
+</header>
+
+<main class="dashboard">
+  <section class="card glass">
+    <h2>New Session</h2>
+
+    <label>
+      Task
+      <input id="taskInput" placeholder="e.g. Deep Work" />
+    </label>
+
+    <label>
+      Duration (minutes)
+      <input id="durationInput" type="number" value="25" />
+    </label>
+
+    <label>
+      Idle Threshold (seconds)
+      <input id="idleInput" type="number" value="10" />
+    </label>
+
+    <div class="buttons">
+      <button id="startBtn">Start</button>
+      <button id="stopBtn" disabled>Stop</button>
+    </div>
+  </section>
+
+  <section class="card glass focus-card">
+    <div class="timer" id="timer">25:00</div>
+    <p class="state">Status: <strong id="state">Idle</strong></p>
+
+    <div class="field">
+      <div class="bird"></div>
+      <div class="bird bird-delay"></div>
+      <div class="bird bird-delay-2"></div>
+    </div>
+
+    <p class="hint">Consistency beats intensity.</p>
+  </section>
+
+  <section class="card glass">
+    <h2>Stats</h2>
+    <p>Distractions: <strong id="distractions">0</strong></p>
+    <p>Focused Today: <strong id="todayFocus">0</strong> min</p>
+    <p>Average Score: <strong id="avgScore">0</strong>%</p>
+    <button id="resetBtn" class="danger">Reset Data</button>
+  </section>
+
+  <section id="summary" class="card glass hidden"></section>
+
+
+  <section class="card glass history">
+    <h2>History</h2>
+    <ul id="historyList"></ul>
+  </section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

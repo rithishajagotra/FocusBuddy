@@ -1,0 +1,206 @@
+:root {
+  --bg: #0b0f1a;
+  --glass: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.15);
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #6366f1;
+  --danger: #ef4444;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #111827, #020617);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.topbar {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.topbar p {
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+
+.dashboard {
+  max-width: 1100px;
+  margin: auto;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.2rem;
+}
+
+
+
+.card {
+  padding: 1.5rem;
+  border-radius: 20px;
+}
+
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-weight: 500;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+input {
+  width: 100%;
+  padding: 0.55rem;
+  margin-top: 0.25rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.buttons {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+button {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 12px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.4;
+}
+
+.danger {
+  background: var(--danger);
+  margin-top: 0.8rem;
+}
+
+.focus-card {
+  text-align: center;
+}
+
+.timer {
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.state {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.hint {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.field {
+  position: relative;
+  height: 60px;
+  margin: 1.2rem 0;
+  overflow: hidden;
+  border-radius: 14px;
+  background: linear-gradient(to top, rgba(255,255,255,0.08) 35%, transparent 35%);
+}
+
+.bird {
+  position: absolute;
+  bottom: 8px;
+  width: 24px;
+  height: 16px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 50% 50% 40% 40%;
+  animation: walk 14s linear infinite;
+}
+
+.bird::before {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 3px;
+  background: rgba(255,255,255,0.7);
+  top: 6px;
+  right: -6px;
+  border-radius: 50%;
+}
+
+.bird-delay {
+  animation-delay: 4s;
+  opacity: 0.6;
+}
+
+.bird-delay-2 {
+  animation-delay: 8s;
+  opacity: 0.4;
+}
+
+@keyframes walk {
+  from { left: -40px; }
+  to { left: 100%; }
+}
+
+
+body.idle .bird {
+  animation-play-state: paused;
+  opacity: 0.25;
+}
+
+body.hidden-tab .bird {
+  opacity: 0.1;
+}
+
+.history ul {
+  padding-left: 1rem;
+}
+
+.history li {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: var(--muted);
+}
+.hidden {
+  display: none;
+}
